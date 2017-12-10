@@ -212,13 +212,21 @@ ns_register_proc GET $::richtext::ckeditor5::ckfinder_url/browse {
 #
 # View handler
 #
+if {$::tcl_version eq "8.5"} {
+    #
+    # In Tcl 8.5, "::try" was not yet a builtin of Tcl
+    #
+    package require try 
+}
 
+ns_log notice "REGISTER url GET $::richtext::ckeditor5::ckfinder_url/view"
 ns_register_proc GET $::richtext::ckeditor5::ckfinder_url/view {
     #
     # View function (for "filebrowser" and "uploadimage" plugins)
     #
+    ns_log notice "richtext::ckeditor5::ckfinder_url/view URL: <[ad_conn url]> ::richtext::ckeditor5::ckfinder_url <$::richtext::ckeditor5::ckfinder_url>"
     set ::template::parse_level [info level]
-    ad_try {
+    ::try {
         #
         # Use the standard page_contract
         #
@@ -230,7 +238,7 @@ ns_register_proc GET $::richtext::ckeditor5::ckfinder_url/view {
             -revision_id $image_id \
             -user_id [ad_conn user_id]
 
-    } ad_script_abort val {
+    } trap {AD EXCEPTION ad_script_abort} {result} {
         #
         # The page contract has probably failed, no need to raise an
         # exception.

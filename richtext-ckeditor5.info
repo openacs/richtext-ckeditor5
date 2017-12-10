@@ -9,15 +9,15 @@
     <implements-subsite-p>f</implements-subsite-p>
     <inherit-templates-p>f</inherit-templates-p>
     
-    <version name="0.1"
-	     url="http://openacs.org/repository/download/apm/richtext-ckeditor5-0.1.apm">
+    <version name="0.2"
+	     url="http://openacs.org/repository/download/apm/richtext-ckeditor5-0.2.apm">
         <owner url="mailto:neumann@wu-wien.ac.at">Gustaf Neumann</owner>
         <summary>Richtext editor plugin for integrating CKeditor 5
 	with the acs-templating richtext widget</summary>
         <release-date>2017-12-05</release-date>
         <maturity>0</maturity>
 
-        <provides url="richtext-ckeditor5" version="0.1"/>
+        <provides url="richtext-ckeditor5" version="0.2"/>
         <requires url="acs-templating" version="5.10.0d2"/>
         <requires url="acs-tcl" version="5.9.1"/>
 	<requires url="xotcl-core" version="5.9.1"/>
