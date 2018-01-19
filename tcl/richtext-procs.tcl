@@ -70,7 +70,7 @@ namespace eval ::richtext::ckeditor5 {
         Initialize an CKEditor richtext editor widget.
 
     } {
-        ns_log notice "initialize CKEditor instance with <$options>"
+        ns_log notice "initialize CKEditor 5 instance with <$options>"
 
         # Allow per default all CSS-classes, unless the user has specified
         # it differently
@@ -369,14 +369,22 @@ namespace eval ::richtext::ckeditor5 {
     ad_proc -public get_tag {-options} {
         Return the tag for rendering
     } {
-        ns_log notice "=== get_tag $options"
+        #
+        # For the time being, determine the tag just from the options
+        # and no other sources.
+        #
+        #ns_log notice "=== get_tag $options"
+
         if {[dict exists $options editor]
             && [dict get $options editor] eq "ckeditor5"
             && [dict exists $options JSEditorClass]
             && [dict get $options JSEditorClass] ne "ClassicEditor"
         } {
             set edit_item_tag div
+        } else {
+            set edit_item_tag textarea
         }
+        return $edit_item_tag
     }
     
 }
