@@ -173,7 +173,7 @@ namespace eval ::richtext::ckeditor5::ckfinder {
         Helper function similar to ad_page_contract, but works only on
         query variables.
 
-        @result return a list of complaints, which is empty in case of success
+        @return list of complaints, which is empty in case of success
 
     } {
         #
