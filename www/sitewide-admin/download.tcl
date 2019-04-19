@@ -7,5 +7,5 @@ ad_page_contract {
     {version:word,notnull ""}
 }
 
-::richtext::ckeditor4::download -ck_package $ck_package -version $version
+::richtext::ckeditor5::download -ck_package $ck_package -version $version
 ad_returnredirect .
